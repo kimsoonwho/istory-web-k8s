@@ -14,7 +14,7 @@ jobs:
     environment: k8s-dev # 환경 변수 및 시크릿 저장공간
     env:
       DOCKER_IMAGE: ${{ secrets.DOCKER_USERNAME }}/istory
-      DOCKER_TAG: ${{ github.run_number }}
+      # DOCKER_TAG: ${{ github.run_number }}
     services:
       mysql:
         image: mysql:8.0
@@ -150,7 +150,7 @@ jobs:
       #     ls
       #     cd awsk-eks/overlay/aws-dev
       #     kustomize edit set image ${{ secrets.DOCKER_USERNAME }}/istory=${{ secrets.DOCKER_USERNAME }}/istory:${{ env.DOCKER_TAG }}
-      
+
       - name: Install yq
         run: |
           sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
